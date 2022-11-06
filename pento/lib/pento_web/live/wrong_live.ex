@@ -2,8 +2,16 @@ defmodule PentoWeb.WrongLive do
   use Phoenix.LiveView, layout: {PentoWeb.LayoutView, "live.html"}
   alias PentoWeb.Router.Helpers, as: Routes
 
-  def mount(_params, _session, socket),
-    do: {:ok, socket}
+  def mount(_params, session, socket) do
+    # user = Accounts.get_user_by_session_token(session["user_token"])
+
+    {:ok,
+     assign(socket,
+       score: 0,
+       message: "Guess a number.",
+       session_id: session["live_socket_id"]
+     )}
+  end
 
   def render(assigns) do
     ~H"""
@@ -30,6 +38,10 @@ defmodule PentoWeb.WrongLive do
       <%= for n <- 1..10 do %>
         <a href="#" phx-click="guess" phx-value-number={n}><%= n %></a>
       <% end %>
+      <pre>
+        <%= @current_user.email %>
+        <%= @session_id %>
+      </pre>
     </h2>
     """
   end
