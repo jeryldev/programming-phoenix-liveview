@@ -1,5 +1,6 @@
 defmodule PentoWeb.WrongLive do
   use Phoenix.LiveView, layout: {PentoWeb.LayoutView, "live.html"}
+  import Phoenix.Component
   alias PentoWeb.Router.Helpers, as: Routes
 
   def mount(_params, session, socket) do

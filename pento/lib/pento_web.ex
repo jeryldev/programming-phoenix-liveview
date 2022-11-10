@@ -47,6 +47,8 @@ defmodule PentoWeb do
       use Phoenix.LiveView,
         layout: {PentoWeb.LayoutView, "live.html"}
 
+      import Phoenix.Component
+
       unquote(view_helpers())
     end
   end
@@ -92,6 +94,7 @@ defmodule PentoWeb do
       # Import LiveView and .heex helpers (live_render, live_patch, <.form>, etc)
       import Phoenix.LiveView.Helpers
       import PentoWeb.LiveHelpers
+      import Phoenix.Component
 
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
