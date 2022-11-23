@@ -1,8 +1,13 @@
 <section class="row">
   <h2>Survey</h2>
 </section>
-<section class="column">
+<%= if @demographic do %>
+  <DemographicLive.Show.details demographic={@demographic} />
+<% else %>
+  <h2>Demographic Form coming soon!</h2>
+<% end %>
+<!-- <section class="column">
   <Component.hero content="Hello from a Function Component">
     <div>Hello from a Function Components's Slot</div>
   </Component.hero>
-</section>
+</section> -->
