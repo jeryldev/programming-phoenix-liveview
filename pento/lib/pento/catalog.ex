@@ -101,4 +101,11 @@ defmodule Pento.Catalog do
   def change_product(%Product{} = product, attrs \\ %{}) do
     Product.changeset(product, attrs)
   end
+
+  # The context module functions as the boundary layer of the Phoenix application.
+  # It handles the uncertainty of exxecuting database interactions.
+  def list_products_with_user_rating(user) do
+    Product.Query.with_user_ratings(user)
+    |> Repo.all()
+  end
 end
